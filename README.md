@@ -16,3 +16,25 @@ In this we will document the tree data structure/
 - Perfect Binary Tree: All the leaf node must be in the same level.
 - Balanced Binary Tree: The heihgt of the tree must be Log(N). Where N is the no. of Nodes.
 - Degenerate Binary Tree: The stright tree like linked list.
+
+********* REPRESENTATION OF BINARY TREE IN JAVA ************
+
+- left Reference | Data | Right Reference : this is how the node in Binary Tree will be represent
+  class Node{
+    int data;
+    Node left;
+    NOde right;
+  public class Node(Key){
+   data = Key;
+    }
+  }
+
+  - In the main function:
+     main(){
+      Node root = new Node(1);  //calling the constructor using new Node to assign the value 1 to the root Node.
+      root.left = new Node(2);  //assigning values to left of root
+      root.right = new Node(3); // assgning values to right of root
+      root.right.left = new Node(5); 
+    }
+
+******************** TRAVERSAL IN TREE *************************
