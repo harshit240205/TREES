@@ -38,3 +38,117 @@ In this we will document the tree data structure/
     }
 
 ******************** TRAVERSAL IN TREE *************************
+
+- Inorder Traversal : Left | Root | Right
+- Pre Order: Root | Left | Right
+- Post order: Left | Right | Root
+
+********** PRE ORDER TRAVERSAL *************
+import java.util.ArrayList;
+import java.util.List;
+
+// Node class for
+// the binary tree
+class Node {
+    int data;
+    Node left;
+    Node right;
+   Node(int val) {
+        data = val;
+        left = null;  
+        right = null;
+    }
+}
+
+public class BinaryTreeTraversal {
+    // Function to perform preorder traversal
+    // of the tree and store values in 'arr'
+    static void preorder(Node root, List<Integer> arr) {
+        // If the current node is NULL
+        // (base case for recursion), return
+        if (root == null) {
+            return;
+        }
+        // Push the current node's
+        // value into the list
+        arr.add(root.data);
+        // Recursively traverse
+        // the left subtree
+        preorder(root.left, arr);
+        // Recursively traverse
+        // the right subtree
+        preorder(root.right, arr);
+    }
+    static List<Integer> preOrder(Node root) {
+        // Create an empty list to
+        // store preorder traversal values
+        List<Integer> arr = new ArrayList<>();
+        // Call the preorder traversal function
+        preorder(root, arr);
+        // Return the resulting list
+        // containing preorder traversal values
+        return arr;
+    }
+
+  public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5); // Getting preorder traversal
+        List<Integer> result = preOrder(root);
+       // Displaying the preorder traversal result
+        System.out.print("Preorder Traversal: ");
+        // Output each value in the
+        // preorder traversal result
+        for (int val : result) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
+}
+
+Time Complexity: O(n) "n is the number of node"
+Space complexity: O(n)
+
+************* INORDER TRAVERSAL *******************
+
+class Node{
+  int val;
+  Node right;
+  Node left;
+
+public Node(data){
+  Node.val = data;
+  Node.right = null;
+  Node.left = null;
+ }
+}
+public class BinaryTreeTraversal{
+  static void Inorder(Node root, List<Integer> arr){
+    if(root == null){
+     return;
+     }
+    Inorder(root.left, arr);
+    arr.add(root.data);
+    Inorder(root.right, arr);
+}
+public static List<Integer> Inorder(Node root)
+ {
+  List<Integer> arr = new ArrayList<>();
+  Inorder(root, arr)
+  return arr;
+ }
+  public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+   List<Integer> result = inOrder(root);
+ System.out.print("Inorder Traversal: ");
+        for (int val : result) {
+            System.out.print(val + " ");
+        }
+        System.out.println();
+    }
